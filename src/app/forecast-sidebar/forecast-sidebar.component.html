@@ -1,0 +1,33 @@
+<div class="weather-panel">
+  <div class="weather-panel__buttons">
+    <button (click)="isShowPanel = !isShowPanel" class="search-button">
+      Search for places
+    </button>
+    <button class="current-location-button">
+      <mat-icon svgIcon="target" class="target-icon"></mat-icon>
+    </button>
+  </div>
+  <div class="weather-panel__background">
+    <mat-icon class="weather-icon" svgIcon="clear"></mat-icon>
+  </div>
+  <div class="weather-panel__temperature">
+    <span class="weather-temp">15</span>
+    <span class="weather-temp-unit">°C</span>
+    <span class="weather-temp-unit">°F</span>
+  </div>
+  <span class="weather-panel__title"> Shower </span>
+  <div class="weather-panel__date">
+    <div>Today</div>
+    <div class="date-dot"></div>
+    <div>Fri, 5 Jun</div>
+  </div>
+  <div class="weather-panel__location">
+    <img
+      class="location-flag"
+      src="https://ipgeolocation.io/static/flags/ua_64.png"
+      alt="Country Flag"
+    />
+     <mat-icon svgIcon="location-marker" class="location-icon"></mat-icon>
+    <span class="location-city">Dnipro</span>
+  </div>
+</div>

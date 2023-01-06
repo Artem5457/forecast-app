@@ -13,29 +13,10 @@
     flex-direction: row;
   }
 
-  .weather-panel {
-    height: 780px;
-    padding-bottom: 25px;
-    background-size: 150%;
-    background: $sidebar-color;
-
-    @media (min-width: $tablet) and (min-height: $screen-height) {
-      @include leftBoard(260px);
-    }
-
-    @media (min-width: $tablet-pro) and (min-height: $screen-height) {
-      @include leftBoard(370px);
-    }
-
-    @media (min-width: $large-screen) and (min-height: $screen-height) {
-      @include leftBoard(440px);
-    }
-  }
-
   .forecast-panel {
     flex-grow: 1;
     background: $forecast-color;
-    padding: 35px 45px;
+    padding: 35px 25px;
   }
 
   .activeScroll {
