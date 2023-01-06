@@ -1,12 +1,5 @@
 @import "./utils/mixins";
 
-$text-color: #E7E7EB;
-$secondary-color: #A09FB1;
-$search-button-color: #6E707A;
-$date-location-color: #88869D;
-$sidebar-color: #1E213A;
-$forecast-color: #100E1D;
-
 :host {
   display: flex;
   flex-direction: column;
@@ -42,6 +35,10 @@ $forecast-color: #100E1D;
   .forecast-panel {
     flex-grow: 1;
     background: $forecast-color;
-    padding: 35px;
+    padding: 35px 45px;
+  }
+
+  .activeScroll {
+    overflow-y: scroll;
   }
 }

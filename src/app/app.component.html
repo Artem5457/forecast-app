@@ -1,12 +1,10 @@
 <div class="weather-panel">
 
 </div>
-<div class="forecast-panel">
-
-</div>
-<!--<app-forecast-content-container-->
-<!--  #story-->
-<!--  [ngClass]="{-->
-<!--    activeScroll: (isInfoBlockScrolled$ | async)-->
-<!--  }"-->
-<!--&gt;</app-forecast-content-container>-->
+<app-forecast-container
+  #forecastContainer
+  class="forecast-panel"
+  [ngClass]="{
+    activeScroll: (isInfoBlockScrolled$ | async)
+  }"
+></app-forecast-container>
