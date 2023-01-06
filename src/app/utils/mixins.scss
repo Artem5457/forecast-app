@@ -1,0 +1,22 @@
+$screen-height: 620px;
+
+$mobile: 320px;
+$tablet: 600px;
+$tablet-pro: 940px;
+$laptop: 1280px;
+$desktop: 1440px;
+$large-screen: 1720px;
+$height-primary: 660px;
+
+@mixin leftBoard($width) {
+  position: relative;
+  width: $width;
+  height: 100vh;
+  left: 0;
+  top: 0;
+}
+
+@mixin iconSize($size) {
+  width: $size;
+  height: $size;
+}
