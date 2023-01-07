@@ -1,6 +1,6 @@
-<div class="weather-panel">
+<div class="weather-panel" *ngIf="!isSearchPanelShown else searchCityPanel">
   <div class="weather-panel__buttons">
-    <button (click)="isShowPanel = !isShowPanel" class="search-button">
+    <button (click)="openSearchPanel()" class="search-button">
       Search for places
     </button>
     <button class="current-location-button">
@@ -31,3 +31,9 @@
     <span class="location-city">Dnipro</span>
   </div>
 </div>
+
+<ng-template #searchCityPanel>
+  <app-search-panel
+    (toggleSearchPanel)="openSearchPanel()"
+  ></app-search-panel>
+</ng-template>

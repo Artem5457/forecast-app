@@ -1,0 +1,74 @@
+@import "../utils/mixins.scss";
+
+:host {
+  .search-panel {
+    height: 660px;
+    background-color: $sidebar-color;
+    padding: 20px 30px;
+
+    @media (min-width: $tablet) and (min-height: $screen-height) {
+      @include leftBoard(260px);
+    }
+
+    @media (min-width: $tablet-pro) and (min-height: $screen-height) {
+      @include leftBoard(370px);
+    }
+
+    @media (min-width: $large-screen) and (min-height: $screen-height) {
+      @include leftBoard(440px);
+    }
+
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__input {
+      position: relative;
+      height: 35px;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid $text-color;
+      background: $sidebar-color;
+      color: $text-color;
+      font-family: 'Raleway', sans-serif;
+      padding: 14px 20px 14px 35px;
+      outline: none;
+
+      &::placeholder {
+        font-weight: 500;
+        font-size: 16px;
+        color: $thirty-color;
+      }
+
+      &--icon {
+        position: absolute;
+        left: 40px;
+        top: 68px;
+        width: 16px;
+        color: $thirty-color;
+        cursor: pointer;
+        transition-duration: .3s;
+
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+
+    .search-city-forecast {
+      margin-top: 25px;
+    }
+
+    .close-icon {
+      color: #E7E7EB;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}

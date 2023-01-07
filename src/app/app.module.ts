@@ -6,12 +6,16 @@ import { ForecastContainerComponent } from './forecast-container/forecast-contai
 import { ForecastSidebarComponent } from './forecast-sidebar/forecast-sidebar.component';
 import {MatIconModule} from "@angular/material/icon";
 import {HttpClientModule} from "@angular/common/http";
+import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { SearchPanelListComponent } from './search-panel/search-panel-list/search-panel-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ForecastContainerComponent,
-    ForecastSidebarComponent
+    ForecastSidebarComponent,
+    SearchPanelComponent,
+    SearchPanelListComponent
   ],
   imports: [
     BrowserModule,

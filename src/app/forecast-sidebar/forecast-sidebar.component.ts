@@ -5,12 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './forecast-sidebar.component.html',
   styleUrls: ['./forecast-sidebar.component.scss']
 })
-export class ForecastSidebarComponent implements OnInit {
-  isShowPanel: boolean = false;
+export class ForecastSidebarComponent {
+  isSearchPanelShown: boolean = false;
 
   constructor() { }
 
-  ngOnInit(): void {
+  openSearchPanel(): void {
+    this.isSearchPanelShown = !this.isSearchPanelShown;
   }
-
 }

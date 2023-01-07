@@ -1,0 +1,22 @@
+<div class="search-panel">
+  <div class="search-panel__header">
+    <mat-icon
+      svgIcon="close"
+      class="close-icon"
+      (click)="toggleSearchPanel.emit()"
+    ></mat-icon>
+  </div>
+  <div class="search-city-forecast">
+    <input
+      placeholder="search location"
+      class="search-panel__input"
+      type="text"
+    >
+    <mat-icon
+      class="search-panel__input--icon"
+      svgIcon="search"
+    ></mat-icon>
+    <app-search-panel-list
+    ></app-search-panel-list>
+  </div>
+</div>
