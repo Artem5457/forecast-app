@@ -28,7 +28,7 @@
       height: 35px;
       width: 100%;
       border-radius: 5px;
-      border: 1px solid $text-color;
+      border: 1px solid $secondary-color;
       background: $sidebar-color;
       color: $text-color;
       font-family: 'Raleway', sans-serif;
@@ -39,6 +39,10 @@
         font-weight: 500;
         font-size: 16px;
         color: $thirty-color;
+      }
+
+      &:focus {
+        border: 1px solid $text-color;
       }
 
       &--icon {
