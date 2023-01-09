@@ -24,18 +24,8 @@
       margin-bottom: 6px;
     }
 
-    &--country-flag {
-      width: 25px;
-      margin-right: 8px;
-    }
-
     &:hover {
       transform: scale(1.05);
     }
-  }
-
-  .right-arrow-block {
-    display: flex;
-    align-items: center;
   }
 }

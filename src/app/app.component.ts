@@ -36,5 +36,7 @@ export class AppComponent implements OnInit {
     this.defineCurrentLocation.defineCurrentLocation().then(
       coords => this.getCity.fetchCurrentCity(coords).subscribe(res => console.log(res))
     );
+
+    this.getCity.getCitiesByName('London').subscribe(res => console.log(res));
   }
 }
