@@ -6,7 +6,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
   styleUrls: ['./search-panel.component.scss']
 })
 export class SearchPanelComponent implements OnInit {
-  @Output() toggleSearchPanel = new EventEmitter<void>()
+  @Output() closeSearchPanel = new EventEmitter<void>()
   constructor() { }
 
   ngOnInit(): void {
