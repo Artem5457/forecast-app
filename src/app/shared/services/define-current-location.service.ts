@@ -12,7 +12,7 @@ export class DefineCurrentLocationService {
 
   // Check this result again
   defineIp(): Observable<any> {
-    return this.http.get('http://ip-api.com/json/');
+    return this.http.get('https://ip-api.com/json/');
   }
 
   defineCurrentLocation(): Promise<LngLat> {
