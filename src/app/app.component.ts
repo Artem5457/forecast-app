@@ -31,8 +31,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.defineCurrentLocation.defineIp().subscribe(ip => console.log(ip));// -
-
     this.defineCurrentLocation.defineCurrentLocation().then(
       coords => this.getCity.fetchCurrentCity(coords).subscribe(res => console.log(res))
     );
