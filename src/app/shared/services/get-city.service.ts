@@ -1,6 +1,6 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {map, Observable} from 'rxjs';
 import {LngLat, City} from '../interfaces/geolocation.interface';
 import {appId} from "../shared.constants";
 
@@ -23,7 +23,14 @@ export class GetCityService {
       }
     });
 
-    return this.http.get<City>('https://api.openweathermap.org/geo/1.0/reverse', {params});
+    return this.http.get<City[]>('https://api.openweathermap.org/geo/1.0/reverse', {params}).pipe(
+      map(cities => {
+        return {
+          name: cities[0]?.name,
+          country: cities[0]?.country,
+        }
+      })
+    );
   }
 
   getCitiesByName(city: string): Observable<City[]> {

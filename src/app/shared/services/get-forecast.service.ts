@@ -1,6 +1,6 @@
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
+import {map, Observable} from "rxjs";
 import { FiveDaysForecast, Forecast } from '../interfaces/forecast.interface';
 import {LngLat} from "../interfaces/geolocation.interface";
 import {appId} from "../shared.constants";
@@ -23,7 +23,18 @@ export class GetForecastService {
       }
     });
 
-    return this.http.get<Forecast>('https://api.openweathermap.org/data/2.5/weather', {params});
+    return this.http.get<Forecast>('https://api.openweathermap.org/data/2.5/weather', {params}).pipe(
+      map(forecast => {
+        return {
+          weather: forecast.weather,
+          main: forecast.main,
+          visibility: forecast.visibility,
+          wind: forecast.wind,
+          clouds: forecast.clouds,
+          dt_txt: forecast.dt_txt,
+        }
+      })
+    );
   }
 
   getFiveDayForecast(coords: LngLat): Observable<FiveDaysForecast> {
@@ -35,6 +46,10 @@ export class GetForecastService {
       }
     });
 
-    return this.http.get<FiveDaysForecast>('https://api.openweathermap.org/data/2.5/forecast', {params});
+    return this.http.get<FiveDaysForecast>('https://api.openweathermap.org/data/2.5/forecast', {params}).pipe(
+      map(res => {
+        return {list: res.list};
+      })
+    );
   }
 }

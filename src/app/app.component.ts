@@ -4,6 +4,7 @@ import {IconService} from "./shared/services/icon.service";
 import {DefineCurrentLocationService} from "./shared/services/define-current-location.service";
 import {GetForecastService} from "./shared/services/get-forecast.service";
 import {GetCityService} from "./shared/services/get-city.service";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
   isInfoBlockScrolled$ = new BehaviorSubject<boolean>(false);
 
   constructor(
+    private store: Store,
     private iconService: IconService,
     private defineCurrentLocation: DefineCurrentLocationService,
     private getForecast: GetForecastService,
@@ -31,10 +33,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.defineCurrentLocation.defineCurrentLocation().then(
-    //   coords => this.getForecast.getFiveDayForecast(coords).subscribe(res => console.log(res))
-    // );
-    //
-    // this.getCity.getCitiesByName('London').subscribe(res => console.log(res));
+
   }
 }

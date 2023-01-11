@@ -20,13 +20,6 @@ export interface Forecast {
     all: number;
   };
   dt_txt: string;
-  sys: {
-    country: string;
-    sunrise: number;
-    sunset: number;
-  };
-  timezone: number;
-  name: string;
 }
 
 export interface FiveDaysForecast {
