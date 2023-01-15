@@ -3,7 +3,7 @@
     <button (click)="openSearchPanel()" class="search-button">
       Search for places
     </button>
-    <button class="current-location-button">
+    <button (click)="findLocation()" class="current-location-button">
       <mat-icon svgIcon="target" class="target-icon"></mat-icon>
     </button>
   </div>
@@ -13,7 +13,6 @@
   <div class="weather-panel__temperature">
     <span class="weather-temp">15</span>
     <span class="weather-temp-unit">°C</span>
-    <span class="weather-temp-unit">°F</span>
   </div>
   <span class="weather-panel__title"> Shower </span>
   <div class="weather-panel__date">

@@ -1,0 +1,15 @@
+<button
+  [ngClass]="{
+    'activated': isCelsius$ | async
+  }"
+  class="temp-measurement"
+  (click)="setCelsius()"
+>°C</button>
+<button
+  [ngClass]="{
+    'activated': !(isCelsius$ | async)
+  }"
+  class="temp-measurement"
+  (click)="setFahrenheit()"
+>°F</button>
+

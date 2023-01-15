@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-forecast-container',
@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forecast-container.component.scss']
 })
 export class ForecastContainerComponent implements OnInit {
-
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
-  }
 
+  }
 }

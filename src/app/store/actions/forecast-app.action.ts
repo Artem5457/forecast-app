@@ -40,5 +40,5 @@ export const getFiveDaysForecastSuccess = createAction(
   props<FiveDaysForecast>()
 );
 
-export const setFarengate = createAction(WeatherActionTypes.SetFarengate);
+export const setFahrenheit = createAction(WeatherActionTypes.SetFarengate);
 export const setCelsius = createAction(WeatherActionTypes.SetCelsius);

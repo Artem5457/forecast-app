@@ -16,7 +16,7 @@ export const getTodayForecast = createSelector(
   (state) => state.todayForecast
 );
 
-export const setIsCelcius = createSelector(
+export const isCelsius = createSelector(
   getForecastState,
   (state) => state.isCelsius
 );

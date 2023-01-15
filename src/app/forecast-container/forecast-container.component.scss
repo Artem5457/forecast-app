@@ -1,5 +1,9 @@
 @import "../utils/mixins.scss";
 
-h1 {
-  color: #80a4e8;
+:host {
+  .forecast-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }

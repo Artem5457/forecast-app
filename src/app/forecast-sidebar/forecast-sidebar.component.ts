@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Store} from "@ngrx/store";
+import {getLocationCoords} from "../store/actions/forecast-app.action";
 
 @Component({
   selector: 'app-forecast-sidebar',
@@ -8,9 +10,15 @@ import { Component } from '@angular/core';
 export class ForecastSidebarComponent {
   isSearchPanelShown: boolean = false;
 
-  constructor() { }
+  constructor(
+    private store: Store,
+  ) { }
 
   openSearchPanel(): void {
     this.isSearchPanelShown = !this.isSearchPanelShown;
+  }
+
+  findLocation(): void {
+    this.store.dispatch(getLocationCoords());
   }
 }

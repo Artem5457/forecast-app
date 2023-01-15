@@ -5,7 +5,7 @@ import {
   getFiveDaysForecastSuccess, getForecast,
   getForecastSuccess,
   setCelsius,
-  setFarengate
+  setFahrenheit
 } from "../actions/forecast-app.action";
 
 export interface ForecastState {
@@ -42,7 +42,7 @@ const getForecastReducer = (
   };
 }
 
-const setFarengateReducer = (state: ForecastState): ForecastState => {
+const setFahrenheitReducer = (state: ForecastState): ForecastState => {
   return {
     ...state,
     isCelsius: false,
@@ -71,7 +71,7 @@ export const forecastReducer = createReducer(
   initialState,
   on(getForecast, setForecastLoadingReducer),
   on(getForecastSuccess, getForecastReducer),
-  on(setFarengate, setFarengateReducer),
+  on(setFahrenheit, setFahrenheitReducer),
   on(setCelsius, setCelsiusReducer),
   on(getFiveDaysForecastSuccess, getFiveDaysForecastReducer)
 )
