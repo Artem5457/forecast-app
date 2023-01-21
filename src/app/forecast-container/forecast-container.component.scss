@@ -1,9 +1,11 @@
 @import "../utils/mixins.scss";
 
 :host {
-  .forecast-panel__header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+  .forecast-panel {
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
   }
 }

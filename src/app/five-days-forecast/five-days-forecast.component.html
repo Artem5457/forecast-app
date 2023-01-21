@@ -1,0 +1,7 @@
+<app-day-forecast
+  *ngFor="let forecast of fiveDaysForecast, let i = index"
+  [date]="i === 0 ? 'Tomorrow' : forecast.date"
+  [maxTemp]="forecast.max"
+  [minTemp]="forecast.min"
+></app-day-forecast>
+
