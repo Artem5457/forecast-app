@@ -68,6 +68,17 @@ export enum MONTHS {
   AUG = 'Aug',
   SEP = 'Sep',
   OCT = 'Oct',
-  NOW = 'Nov',
+  NOV = 'Nov',
   DEC = 'Dec',
+}
+
+export enum COMPASS {
+  NORTH = 'North',
+  NORTHEAST = 'North-East',
+  EAST = 'East',
+  SOUTHEAST = 'South-East',
+  SOUTH = 'South',
+  SOUTHWEST = 'South-West',
+  WEST = 'West',
+  NORTHWEST = 'North-West',
 }

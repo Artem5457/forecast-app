@@ -1,0 +1,63 @@
+<div class="title-block">
+  <span class="forecast-info-title">Today's Highlights</span>
+</div>
+<div class="forecast-info">
+  <div class="forecast-info-item">
+    <span class="forecast-info-item__title">Wind status</span>
+    <div class="forecast-info-item__value-block">
+      <div class="forecast-info-item__value-block--value">
+        7
+      </div>
+      <div class="forecast-info-item__value-block--unit">mps</div>
+    </div>
+    <div>
+      <mat-icon
+        style="transform: rotate(calc(-90deg + 40deg))"
+        class="forecast-info__direction-icon"
+        svgIcon="wind-direction"
+      ></mat-icon>
+      <span class="forecast-info__direction"
+      > {{210 | weatherDirection}} </span>
+    </div>
+  </div>
+  <div class="forecast-info-item">
+    <span class="forecast-info-item__title">Humidity</span>
+    <div class="forecast-info-item__value-block">
+      <div class="forecast-info-item__value-block--value">
+        84
+      </div>
+      <div class="forecast-info-item__value-block--unit">%</div>
+    </div>
+    <app-progress-bar></app-progress-bar>
+  </div>
+  <div class="forecast-info-item">
+    <span class="forecast-info-item__title">Clouds</span>
+    <div class="forecast-info-item__value-block">
+      <div class="forecast-info-item__value-block--value">
+        15
+      </div>
+      <div class="forecast-info-item__value-block--unit">%</div>
+    </div>
+    <app-progress-bar></app-progress-bar>
+  </div>
+  <div class="forecast-info-item">
+    <span class="forecast-info-item__title">Visibility</span>
+    <div class="forecast-info-item__value-block">
+      <div class="forecast-info-item__value-block--value">
+        {{9901 | meterToKm}}
+      </div>
+      <div
+        class="forecast-info-item__value-block--unit unit"
+      >km</div>
+    </div>
+  </div>
+  <div class="forecast-info-item">
+    <span class="forecast-info-item__title">Air Pressure</span>
+    <div class="forecast-info-item__value-block">
+      <div class="forecast-info-item__value-block--value">
+        998
+      </div>
+      <div class="forecast-info-item__value-block--unit">hPa</div>
+    </div>
+  </div>
+</div>

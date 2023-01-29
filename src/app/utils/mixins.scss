@@ -6,6 +6,7 @@ $search-button-color: #6E707A;
 $date-location-color: #88869D;
 $sidebar-color: #1E213A;
 $forecast-color: #100E1D;
+$progress-value: #FFEC65;
 
 //screen sizes
 $screen-height: 620px;
@@ -29,4 +30,10 @@ $height-primary: 660px;
 @mixin iconSize($size) {
   width: $size;
   height: $size;
+}
+
+@mixin textSize($weight, $size, $line-height) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
 }

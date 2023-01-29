@@ -1,0 +1,35 @@
+@import "../../../../utils/mixins";
+
+:host {
+  width: 80%;
+
+  .progress-bar-scale {
+    display: flex;
+    justify-content: space-between;
+    color: #A09FB1;
+    @include textSize(700, 12px, 14px);
+    margin-bottom: 2px;
+  }
+
+  .progress-container {
+    background: $text-color;
+    opacity: .8;
+    border-radius: 5px;
+
+    &__value {
+      height: 8px;
+      background: $progress-value;
+      padding-left: 4px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+
+  .progress-bar-unit {
+    display: flex;
+    justify-content: flex-end;
+    color: #A09FB1;
+    @include textSize(700, 12px, 14px);
+    margin-top: 2px;
+  }
+}

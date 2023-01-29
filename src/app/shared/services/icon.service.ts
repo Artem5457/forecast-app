@@ -24,6 +24,7 @@ export class IconService {
     {url: 'assets/icons/close.svg', name: 'close'},
     {url: 'assets/icons/search.svg', name: 'search'},
     {url: 'assets/icons/right-arrow.svg', name: 'right-arrow'},
+    {url: 'assets/icons/wind-direction.svg', name: 'wind-direction'},
   ];
 
   constructor(

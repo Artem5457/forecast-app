@@ -50,7 +50,7 @@ export const getMonth = (month: number): MONTHS => {
     case 9:
       return MONTHS.OCT;
     case 10:
-      return MONTHS.NOW;
+      return MONTHS.NOV;
     default:
       return MONTHS.DEC;
   }

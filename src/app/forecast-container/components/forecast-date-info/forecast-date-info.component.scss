@@ -1,0 +1,77 @@
+@import "../../../utils/mixins";
+
+:host {
+  .title-block {
+    display: flex;
+    justify-content: center;
+    padding: 40px 15px;
+
+    @media all and (min-width: 1360px) {
+      padding: 0;
+    }
+
+    .forecast-info-title {
+      color: $text-color;
+      @include textSize(700, 24px, 28px);
+    }
+  }
+
+  .forecast-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(211px, auto));
+    gap: 20px;
+
+    @media (min-width: 1360px) {
+      width: 900px;
+      margin: 60px auto;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      &:first-child {
+        justify-content: space-between;
+      }
+
+      &__title {
+        text-align: center;
+        @include textSize(500, 13px, 14px);
+      }
+
+      &__value-block {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+
+        &--value {
+          @include textSize(700, 40px, 42px);
+        }
+
+        &--unit {
+          @include textSize(500, 20px, 22px);
+        }
+      }
+
+      background-color: $sidebar-color;
+      color: $text-color;
+      padding: 22px;
+      border-radius: 8px;
+    }
+
+    &__direction-icon {
+      @include iconSize(10px);
+      transform-origin: bottom;
+    }
+
+    &__direction {
+      margin-left: 4px;
+    }
+  }
+
+  .unit {
+    margin-bottom: 2px;
+  }
+}

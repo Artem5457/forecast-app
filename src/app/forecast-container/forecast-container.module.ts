@@ -4,6 +4,7 @@ import {ForecastContainerComponent} from "./forecast-container.component";
 import {MatIconModule} from "@angular/material/icon";
 import { TempChangerComponent } from './components/temp-changer/temp-changer.component';
 import {FiveDaysForecastModule} from "../five-days-forecast/five-days-forecast.module";
+import {ForecastDateInfoModule} from "./components/forecast-date-info/forecast-date-info.module";
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {FiveDaysForecastModule} from "../five-days-forecast/five-days-forecast.m
     CommonModule,
     MatIconModule,
     FiveDaysForecastModule,
+    ForecastDateInfoModule,
   ],
   exports: [
     ForecastContainerComponent,

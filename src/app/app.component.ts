@@ -1,4 +1,4 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {IconService} from "./shared/services/icon.service";
 import {DefineCurrentLocationService} from "./shared/services/define-current-location.service";
@@ -11,7 +11,7 @@ import {Store} from "@ngrx/store";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('forecastContainer', { read: ElementRef }) forecastContainer: ElementRef;
 
   isInfoBlockScrolled$ = new BehaviorSubject<boolean>(false);
@@ -32,7 +32,9 @@ export class AppComponent implements OnInit {
       : this.isInfoBlockScrolled$.next(false);
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
+  ngAfterViewInit(): void {
+    setTimeout(() => this.onResize(), 0);
   }
 }
