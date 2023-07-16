@@ -41,7 +41,7 @@ export class SearchPanelComponent implements OnInit, OnDestroy {
         fromEvent(this.searchInput.nativeElement, 'input')
           .pipe(
             pluck('target', 'value'),
-            debounceTime(100),
+            debounceTime(500),
             distinctUntilChanged(),
             switchMap((city: string) => {
               return this.getCityService.getCitiesByName(city || '  ');

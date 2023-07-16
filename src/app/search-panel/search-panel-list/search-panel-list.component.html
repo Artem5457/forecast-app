@@ -1,5 +1,9 @@
-<ul *ngFor="let city of cities;">
-  <li class="search-panel__city-item">
+<ul>
+  <li
+    *ngFor="let city of cities;"
+    class="search-panel__city-item"
+    (click)="getForecastForSearchedCity(city)"
+  >
     <div class="search-panel__city-item--info" style="width: 70%;">
       <div class="item-overflow">{{ city.name }}{{ city.state ? ',' : '' }}</div>
       <div class="item-overflow">{{ city.state }}</div>

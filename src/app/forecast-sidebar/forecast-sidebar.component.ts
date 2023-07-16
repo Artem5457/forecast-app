@@ -6,7 +6,6 @@ import { Forecast } from '../shared/interfaces/forecast.interface';
 import { TemperatureValuePipe } from "../shared/pipes/temperature/temperature-value.pipe";
 import { getCurrentDate } from "../shared/helpers/date.helper";
 import { getCurrentCity } from "../store/selectors/location.selector";
-import {isForecastLoading} from "../store/selectors/forecast.selector";
 
 @Component({
   selector: 'app-forecast-sidebar',
@@ -22,7 +21,6 @@ export class ForecastSidebarComponent implements OnInit {
 
   isSearchPanelShown: boolean = false;
   currentCity$ = this.store.pipe(select(getCurrentCity));
-  isForecastLoading$ = this.store.pipe(select(isForecastLoading));
 
   readonly todayDate = getCurrentDate();
 

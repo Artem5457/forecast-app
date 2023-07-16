@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {City} from "../../shared/interfaces/geolocation.interface";
+import {City} from '../../shared/interfaces/geolocation.interface';
+import {Store} from '@ngrx/store';
+import {getForecast, getMyCitySuccess} from "../../store/actions/forecast-app.action";
 
 @Component({
   selector: 'app-search-panel-list',
@@ -8,4 +10,12 @@ import {City} from "../../shared/interfaces/geolocation.interface";
 })
 export class SearchPanelListComponent {
   @Input() cities: City[];
+
+  constructor(private store: Store) {
+  }
+
+  getForecastForSearchedCity(city: City): void {
+    this.store.dispatch(getForecast({lon: city.lon, lat: city.lat}));
+    this.store.dispatch(getMyCitySuccess(city));
+  }
 }
