@@ -1,0 +1,22 @@
+<div class="location-error-dialog">
+  <h2 class="location-error-dialog__title">Location detection error!</h2>
+  <p class="location-error-dialog__message">
+    We couldn't define your current location.
+    Check the locator in your browser, please!
+    Turn it on, if it is inactive and reload your page!
+  </p>
+  <p class="location-error-dialog__message">
+    Now you see the forecast for default city Dnipro.
+  </p>
+  <img
+    class="location-error-dialog__image"
+    src="../../assets/location-forbidden.jpg"
+    alt="Location-Forbidden"
+  >
+  <button
+    class="location-error-dialog__got-it-button"
+    (click)="closeLocationErrorDialog()"
+  >
+    Got it!
+  </button>
+</div>

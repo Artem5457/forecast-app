@@ -1,0 +1,39 @@
+@import "../utils/mixins.scss";
+
+:host {
+  .location-error-dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      text-align: center;
+    }
+
+    &__message {
+      text-align: justify;
+    }
+
+    &__image {
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    &__got-it-button {
+      width: max-content;
+      padding: 7px 42px;
+      background: rgb(10, 99, 208);
+      border: 1px solid rgb(38, 125, 232);
+      border-radius: 5px;
+      color: $text-color;
+      font-weight: 900;
+      outline: none;
+      letter-spacing: 2px;
+      cursor: pointer;
+
+      &:hover {
+        background: rgb(38, 125, 232);
+      }
+    }
+  }
+}
