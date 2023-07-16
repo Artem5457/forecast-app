@@ -1,28 +1,44 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
-import {IconService} from "./shared/services/icon.service";
-import {DefineCurrentLocationService} from "./shared/services/define-current-location.service";
-import {GetForecastService} from "./shared/services/get-forecast.service";
-import {GetCityService} from "./shared/services/get-city.service";
-import {Store} from "@ngrx/store";
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import { BehaviorSubject, Observable, Subscription } from "rxjs";
+import { select, Store } from "@ngrx/store";
+import { getForecast, getLocationCoords } from "./store/actions/forecast-app.action";
+import { IconService } from './shared/services/icon.service';
+import { DefineCurrentLocationService } from './shared/services/define-current-location.service';
+import {getCurrentCity, isCoordsError} from './store/selectors/location.selector';
+import {getTodayForecast, isCelsius} from './store/selectors/forecast.selector';
+import { Forecast } from './shared/interfaces/forecast.interface';
+import { GetCityService } from './shared/services/get-city.service';
+import { GetForecastService } from './shared/services/get-forecast.service';
+import {defaultCoords} from "./shared/shared.constants";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, OnDestroy {
   @ViewChild('forecastContainer', { read: ElementRef }) forecastContainer: ElementRef;
 
   isInfoBlockScrolled$ = new BehaviorSubject<boolean>(false);
+  todayForecast$: Observable<Forecast> = this.store.pipe(select(getTodayForecast));
+  isCelsius$ = this.store.select(isCelsius);
+
+  private subscription = new Subscription();
 
   constructor(
     private store: Store,
     private iconService: IconService,
     private defineCurrentLocation: DefineCurrentLocationService,
-    private getForecast: GetForecastService,
-    private getCity: GetCityService,
-  ) { }
+    private cityService: GetCityService,
+    private forecastService: GetForecastService,
+  ) {}
 
   @HostListener('window: resize')
   onResize(): void {
@@ -32,9 +48,26 @@ export class AppComponent implements OnInit, AfterViewInit {
       : this.isInfoBlockScrolled$.next(false);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    setTimeout(() => this.onResize(), 500);
 
-  ngAfterViewInit(): void {
-    setTimeout(() => this.onResize(), 0);
+    this.store.dispatch(getLocationCoords());
+    this.store.dispatch(getForecast(defaultCoords));
+
+    this.store.pipe(select(getCurrentCity)).subscribe(city => console.log(city));
+
+    this.subscription.add(
+      this.store.pipe(select(isCoordsError)).subscribe(isCoordsError => {
+        if (isCoordsError) {
+          this.defineCurrentLocation.openLocationErrorDialog();
+        }
+      })
+    );
+
+    this.forecastService.getForecastByCityName('London', 'UK').subscribe(forecast => console.log(forecast));
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

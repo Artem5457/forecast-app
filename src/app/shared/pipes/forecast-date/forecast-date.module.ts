@@ -13,4 +13,4 @@ import {ForecastDatePipe} from "./forecast-date.pipe";
     ForecastDatePipe,
   ]
 })
-export class CountryFlagModule { }
+export class ForecastDateModule { }

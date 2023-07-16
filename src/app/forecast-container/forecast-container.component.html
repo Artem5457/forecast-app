@@ -2,6 +2,10 @@
   <div class="forecast-panel__header">
     <app-temp-changer></app-temp-changer>
   </div>
-  <app-five-days-forecast></app-five-days-forecast>
-  <app-forecast-date-info></app-forecast-date-info>
+  <app-five-days-forecast
+    [isCelsius]="isCelsius"
+  ></app-five-days-forecast>
+  <app-forecast-date-info
+    [todayForecast]="todayForecast"
+  ></app-forecast-date-info>
 </div>

@@ -1,7 +1,10 @@
 <app-day-forecast
-  *ngFor="let forecast of fiveDaysForecast, let i = index"
-  [date]="i === 0 ? 'Tomorrow' : forecast.date"
-  [maxTemp]="forecast.max"
-  [minTemp]="forecast.min"
+  *ngFor="let forecast of (fiveDaysForecast$ | async), let i = index"
+  [date]="i === 0 ? '' : forecast.min.dt_txt"
+  [maxTemp]="forecast.max.main.temp"
+  [minTemp]="forecast.min.main.temp"
+  [isCelsius]="isCelsius"
+  [iconWeather]="forecast.max | weatherIcon"
+  [description]="forecast.max.weather[0].main"
 ></app-day-forecast>
 

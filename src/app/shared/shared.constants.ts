@@ -1,6 +1,14 @@
 import { WeatherQuery } from "./interfaces/forecast.interface";
 
 export const appId = 'a34fcc171dc45409dcb4d2f9202914ff';
+export const defaultCoords = {
+  lon: 35.0470608,
+  lat: 48.4213257
+};
+
+export enum Breakpoints {
+  Mobile = '400px',
+}
 
 export enum WEATHER_MAIN {
   THUNDERSTORM = 'Thunderstorm',

@@ -1,14 +1,15 @@
 <div class="day-forecast">
-  <div class="day-forecast__title">{{ date }}</div>
-  <mat-icon svgIcon="clear"></mat-icon>
+  <div class="day-forecast__title">{{ date | forecastDate }}</div>
+  <mat-icon [svgIcon]="iconWeather"></mat-icon>
+  <div class="day-forecast__description">{{ description }}</div>
   <div class="day-forecast__temp">
-    <div class="day-forecast__temp--min">
-      <span>{{minTemp}}</span>
-      <span>°C</span>
+    <div class="day-forecast__temp--afternoon " *ngIf="canGetMaxTemp">
+      <span>{{ maxTemp | tempValue : isCelsius }}</span>
+      <span>{{ isCelsius | tempDegree }}</span>
     </div>
-    <div class="day-forecast__temp--max">
-      <span>{{maxTemp}}</span>
-      <span>°F</span>
+    <div class="day-forecast__temp--night" *ngIf="canGetMinTemp">
+      <span>{{ minTemp | tempValue : isCelsius }}</span>
+      <span>{{ isCelsius | tempDegree }}</span>
     </div>
   </div>
 </div>

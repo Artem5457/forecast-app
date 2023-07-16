@@ -6,45 +6,49 @@
     <span class="forecast-info-item__title">Wind status</span>
     <div class="forecast-info-item__value-block" style="margin-bottom: 15px">
       <div class="forecast-info-item__value-block--value">
-        7
+        {{ todayForecast?.wind.speed }}
       </div>
       <div class="forecast-info-item__value-block--unit">mps</div>
     </div>
     <div>
       <mat-icon
-        style="transform: rotate(calc(-90deg + 40deg))"
+        [style.transform]="transformRotation"
         class="forecast-info__direction-icon"
         svgIcon="wind-direction"
       ></mat-icon>
       <span class="forecast-info__direction"
-      > {{210 | weatherDirection}} </span>
+      > {{todayForecast?.wind.deg | weatherDirection}} </span>
     </div>
   </div>
   <div class="forecast-info-item">
     <span class="forecast-info-item__title">Humidity</span>
     <div class="forecast-info-item__value-block">
       <div class="forecast-info-item__value-block--value">
-        84
+        {{ todayForecast?.main.humidity }}
       </div>
       <div class="forecast-info-item__value-block--unit">%</div>
     </div>
-    <app-progress-bar></app-progress-bar>
+    <app-progress-bar
+      [value]="todayForecast?.main.humidity"
+    ></app-progress-bar>
   </div>
   <div class="forecast-info-item">
     <span class="forecast-info-item__title">Clouds</span>
     <div class="forecast-info-item__value-block">
       <div class="forecast-info-item__value-block--value">
-        15
+        {{ todayForecast?.clouds.all }}
       </div>
       <div class="forecast-info-item__value-block--unit">%</div>
     </div>
-    <app-progress-bar></app-progress-bar>
+    <app-progress-bar
+      [value]="todayForecast?.clouds.all"
+    ></app-progress-bar>
   </div>
   <div class="forecast-info-item">
     <span class="forecast-info-item__title">Visibility</span>
     <div class="forecast-info-item__value-block">
       <div class="forecast-info-item__value-block--value">
-        {{9901 | meterToKm}}
+        {{ todayForecast?.visibility | meterToKm }}
       </div>
       <div
         class="forecast-info-item__value-block--unit unit"
@@ -55,7 +59,7 @@
     <span class="forecast-info-item__title">Air Pressure</span>
     <div class="forecast-info-item__value-block">
       <div class="forecast-info-item__value-block--value">
-        998
+        {{ todayForecast?.main.pressure }}
       </div>
       <div class="forecast-info-item__value-block--unit">hPa</div>
     </div>

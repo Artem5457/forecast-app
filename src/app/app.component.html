@@ -1,9 +1,13 @@
-<app-forecast-sidebar>
+<app-forecast-sidebar
+  [todayForecast]="todayForecast$ | async"
+  [isCelsius]="isCelsius$ | async"
+></app-forecast-sidebar>
 
-</app-forecast-sidebar>
 <app-forecast-container
   #forecastContainer
   class="forecast-panel"
+  [isCelsius]="isCelsius$ | async"
+  [todayForecast]="todayForecast$ | async"
   [ngClass]="{
     activeScroll: (isInfoBlockScrolled$ | async)
   }"

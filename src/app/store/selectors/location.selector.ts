@@ -20,3 +20,8 @@ export const getCurrentCity = createSelector(
   getCurrentLocationState,
   (state) => state.currentCity
 );
+
+export const isCoordsError = createSelector(
+  getCurrentLocationState,
+  (state) => state.isCoordsError,
+);

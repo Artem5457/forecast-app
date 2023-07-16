@@ -13,15 +13,21 @@
       color: $text-color;
     }
 
+    &__description {
+      margin-top: 25px;
+      font-weight: 600;
+      color: $secondary-color;
+    }
+
     &__temp {
       display: flex;
-      margin-top: 30px;
+      margin-top: 10px;
 
-      &--min {
+      &--afternoon {
         color: $text-color;
       }
 
-      &--max {
+      &--night {
         color: $secondary-color;
         margin-left: 15px;
       }

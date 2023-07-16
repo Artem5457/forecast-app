@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent {
-  constructor() { }
+  @Input() value: number;
 }

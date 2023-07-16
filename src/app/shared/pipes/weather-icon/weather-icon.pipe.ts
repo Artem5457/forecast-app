@@ -6,9 +6,9 @@ import {FORCE, lightClouds, MAIN_ICONS, WEATHER_MAIN, weatherQuery} from "../../
   name: 'weatherIcon'
 })
 export class WeatherIconPipe implements PipeTransform {
-  transform(value: Forecast): string {
-    const weatherMain = value.weather[0].main;
-    const weatherDescription = value.weather[0].description;
+  transform(value: Forecast | null): string {
+    const weatherMain = value?.weather[0].main;
+    const weatherDescription = value?.weather[0].description;
 
     switch(weatherMain) {
       case WEATHER_MAIN.CLEAR:

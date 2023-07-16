@@ -13,6 +13,6 @@ export class TemperatureValuePipe implements PipeTransform {
       return farengTemp;
     }
 
-    return celciusTemp;
+    return Math.round(celciusTemp);
   }
 }

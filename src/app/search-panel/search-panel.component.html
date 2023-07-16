@@ -8,6 +8,7 @@
   </div>
   <div class="search-city-forecast">
     <input
+      #searchInput
       placeholder="search location"
       class="search-panel__input"
       type="text"
@@ -17,6 +18,7 @@
       svgIcon="search"
     ></mat-icon>
     <app-search-panel-list
+      [cities]="cities"
     ></app-search-panel-list>
   </div>
 </div>

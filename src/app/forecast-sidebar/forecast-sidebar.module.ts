@@ -5,9 +5,14 @@ import {WeatherIconModule} from "../shared/pipes/weather-icon/weather-icon.modul
 import {SearchPanelModule} from "../search-panel/search-panel.module";
 import {ForecastSidebarComponent} from "./forecast-sidebar.component";
 import {MatIconModule} from "@angular/material/icon";
+import { TemperatureModule } from "../shared/pipes/temperature/temperature.module";
+import {ForecastDateModule} from "../shared/pipes/forecast-date/forecast-date.module";
 
 @NgModule({
   declarations: [
+    ForecastSidebarComponent
+  ],
+  exports: [
     ForecastSidebarComponent
   ],
   imports: [
@@ -16,9 +21,8 @@ import {MatIconModule} from "@angular/material/icon";
     WeatherIconModule,
     SearchPanelModule,
     MatIconModule,
-  ],
-  exports: [
-    ForecastSidebarComponent
+    TemperatureModule,
+    ForecastDateModule,
   ]
 })
 export class ForecastSidebarModule { }

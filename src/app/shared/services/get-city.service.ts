@@ -28,6 +28,9 @@ export class GetCityService {
         return {
           name: cities[0]?.name,
           country: cities[0]?.country,
+          lon: cities[0]?.lon,
+          lat: cities[0]?.lat,
+          state: cities[0]?.state,
         }
       })
     );

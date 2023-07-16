@@ -10,14 +10,20 @@ import { metaReducers, reducers } from './store/reducers';
 import { effects } from './store/effects';
 import { EffectsModule } from '@ngrx/effects';
 import { ForecastContainerModule } from './forecast-container/forecast-container.module';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { LocationErrorDialogComponent } from './location-error-dialog/location-error-dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import {MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS} from "@angular/material/progress-spinner";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LocationErrorDialogComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     ForecastSidebarModule,
     ForecastContainerModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
     }),
@@ -27,7 +33,15 @@ import { ForecastContainerModule } from './forecast-container/forecast-container
     }),
     EffectsModule.forRoot(effects),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS,
+      useValue: {
+        diameter: 60,
+        strokeWidth: 2.5,
+      },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

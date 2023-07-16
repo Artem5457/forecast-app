@@ -3,7 +3,8 @@ export interface LngLat {
   lat: number;
 }
 
-export interface City {
+export interface City extends LngLat{
   name: string;
   country: string;
+  state: string;
 }

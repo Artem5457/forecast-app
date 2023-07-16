@@ -1,9 +1,15 @@
-<ul>
+<ul *ngFor="let city of cities;">
   <li class="search-panel__city-item">
-    London
-    <mat-icon
-      svgIcon="right-arrow"
-      class="search-panel__city-item--icon"
-    ></mat-icon>
+    <div class="search-panel__city-item--info" style="width: 70%;">
+      <div class="item-overflow">{{ city.name }}{{ city.state ? ',' : '' }}</div>
+      <div class="item-overflow">{{ city.state }}</div>
+    </div>
+    <div>
+      <img [src]="city.country | countryFlag" alt="Flag">
+      <mat-icon
+        svgIcon="right-arrow"
+        class="search-panel__city-item--icon"
+      ></mat-icon>
+    </div>
   </li>
 </ul>

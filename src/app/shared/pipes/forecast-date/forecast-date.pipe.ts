@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {getDayOfWeek, getMonth} from "../../helpers/date.helper";
+import { getDayOfWeek, getMonth } from "../../helpers/date.helper";
 
 @Pipe({
   name: 'forecastDate'

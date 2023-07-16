@@ -17,11 +17,26 @@
     overflow: hidden;
     transition-duration: 0.3s;
 
+    &--info {
+      width: 70%;
+
+      .item-overflow {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
     &--icon {
       height: 11px;
       width: 11px;
       color: $thirty-color;
       margin-bottom: 6px;
+    }
+
+    img {
+      width: 30px;
+      height: 15px;
+      margin-right: 8px;
     }
 
     &:hover {

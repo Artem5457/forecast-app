@@ -15,10 +15,12 @@ export enum WeatherActionTypes {
 }
 
 export const getLocationCoords = createAction(WeatherActionTypes.GetLocationCoords);
+
 export const getLocationCoordsSuccess = createAction(
   WeatherActionTypes.GetLocationCoordsSuccess,
   props<LngLat>()
 );
+
 export const setLocationCoordsError = createAction(WeatherActionTypes.SetLocationCoordsError);
 
 export const getMyCitySuccess = createAction(
@@ -30,6 +32,7 @@ export const getForecast = createAction(
   WeatherActionTypes.GetForecast,
   props<LngLat>()
 );
+
 export const getForecastSuccess = createAction(
   WeatherActionTypes.GetForecastSuccess,
   props<Forecast>()
@@ -41,4 +44,5 @@ export const getFiveDaysForecastSuccess = createAction(
 );
 
 export const setFahrenheit = createAction(WeatherActionTypes.SetFarengate);
+
 export const setCelsius = createAction(WeatherActionTypes.SetCelsius);

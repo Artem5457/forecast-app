@@ -4,7 +4,10 @@
   <span>100</span>
 </div>
 <div class="progress-container">
-  <div class="progress-container__value" style="width: 84%"></div>
+  <div
+    class="progress-container__value"
+    [style.width]="value + '%'"
+  ></div>
 </div>
 <div class="progress-bar-unit">
   <span>%</span>

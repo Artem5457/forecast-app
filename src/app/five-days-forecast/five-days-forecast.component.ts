@@ -1,40 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { getFiveDaysForecast } from '../store/selectors/forecast.selector';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { Forecast } from '../shared/interfaces/forecast.interface';
+
+interface DayForecast {
+  min: Forecast;
+  max: Forecast;
+  curTemp: number;
+}
 
 @Component({
   selector: 'app-five-days-forecast',
   templateUrl: './five-days-forecast.component.html',
-  styleUrls: ['./five-days-forecast.component.scss']
+  styleUrls: ['./five-days-forecast.component.scss'],
 })
 export class FiveDaysForecastComponent implements OnInit {
-  readonly fiveDaysForecast = [
-    {
-      date: '2013-12-09',
-      min: 19,
-      max: 25,
-    },
-    {
-      date: '2016-10-19',
-      min: 29,
-      max: 34,
-    },
-    {
-      date: '2017-12-19',
-      min: 19,
-      max: 25,
-    },
-    {
-      date: '2014-10-19',
-      min: 29,
-      max: 34,
-    },
-    {
-      date: '2013-12-09',
-      min: 19,
-      max: 25,
-    },
-  ]
+  @Input() isCelsius: boolean;
 
-  constructor() { }
+  fiveDaysForecast$: Observable<DayForecast[]> = this.store.pipe(
+    select(getFiveDaysForecast)
+  );
 
-  ngOnInit(): void { }
+  constructor(private store: Store) {}
+
+  ngOnInit(): void {
+    this.fiveDaysForecast$.subscribe((el) => console.log(el));
+  }
 }

@@ -7,23 +7,34 @@
       <mat-icon svgIcon="target" class="target-icon"></mat-icon>
     </button>
   </div>
-  <div class="weather-panel__background">
-    <mat-icon class="weather-icon" svgIcon="clear"></mat-icon>
-  </div>
-  <div class="weather-panel__temperature">
-    <span class="weather-temp">15</span>
-    <span class="weather-temp-unit">°C</span>
-  </div>
-  <span class="weather-panel__title"> Shower </span>
-  <div class="weather-panel__date">
-    <div>Today</div>
-    <div class="date-dot"></div>
-    <div>Fri, 5 Jun</div>
-  </div>
-  <div class="weather-panel__location">
-     <mat-icon svgIcon="location-marker" class="location-icon"></mat-icon>
-    <span class="location-city">Dnipro</span>
-  </div>
+  <ng-container>
+    <div class="weather-panel__background">
+      <mat-icon
+        class="weather-icon"
+        [svgIcon]="todayForecast | weatherIcon"
+      ></mat-icon>
+    </div>
+    <div class="weather-panel__temperature">
+    <span class="weather-temp" *ngIf="canGetTemp">
+      {{ todayForecast?.main.temp | tempValue : isCelsius }}
+    </span>
+      <span class="weather-temp-unit">
+      {{ isCelsius | tempDegree }}
+    </span>
+    </div>
+    <span class="weather-panel__title">
+    {{ todayForecast?.weather[0].main }}
+  </span>
+    <div class="weather-panel__date">
+      <div>Today</div>
+      <div class="date-dot"></div>
+      <div>{{ todayDate }}</div>
+    </div>
+    <div class="weather-panel__location">
+      <mat-icon svgIcon="location-marker" class="location-icon"></mat-icon>
+      <span class="location-city">{{ (currentCity$ | async)?.name }}</span>
+    </div>
+  </ng-container>
 </div>
 
 <ng-template #searchCityPanel>
