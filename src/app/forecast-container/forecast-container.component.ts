@@ -4,7 +4,7 @@ import {Forecast} from "../shared/interfaces/forecast.interface";
 @Component({
   selector: 'app-forecast-container',
   templateUrl: './forecast-container.component.html',
-  styleUrls: ['./forecast-container.component.scss']
+  styleUrls: ['./forecast-container.component.scss'],
 })
 export class ForecastContainerComponent {
   @Input() isCelsius: boolean;

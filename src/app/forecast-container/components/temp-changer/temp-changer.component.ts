@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { isCelsius } from '../../../store/selectors/forecast.selector';
 import {
@@ -10,6 +10,7 @@ import {
   selector: 'app-temp-changer',
   templateUrl: './temp-changer.component.html',
   styleUrls: ['./temp-changer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TempChangerComponent {
   isCelsius$ = this.store.select(isCelsius);

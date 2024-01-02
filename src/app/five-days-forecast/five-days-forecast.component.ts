@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { getFiveDaysForecast } from '../store/selectors/forecast.selector';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -15,7 +15,7 @@ interface DayForecast {
   templateUrl: './five-days-forecast.component.html',
   styleUrls: ['./five-days-forecast.component.scss'],
 })
-export class FiveDaysForecastComponent implements OnInit {
+export class FiveDaysForecastComponent {
   @Input() isCelsius: boolean;
 
   fiveDaysForecast$: Observable<DayForecast[]> = this.store.pipe(
@@ -23,8 +23,4 @@ export class FiveDaysForecastComponent implements OnInit {
   );
 
   constructor(private store: Store) {}
-
-  ngOnInit(): void {
-    this.fiveDaysForecast$.subscribe((el) => console.log(el));
-  }
 }

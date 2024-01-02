@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TemperatureValuePipe} from "../../shared/pipes/temperature/temperature-value.pipe";
 
 @Component({
@@ -9,7 +9,7 @@ import {TemperatureValuePipe} from "../../shared/pipes/temperature/temperature-v
     TemperatureValuePipe
   ],
 })
-export class DayForecastComponent implements OnInit {
+export class DayForecastComponent {
   @Input() date: string;
   @Input() minTemp: number;
   @Input() maxTemp: number;
@@ -29,6 +29,4 @@ export class DayForecastComponent implements OnInit {
   constructor(
     private tempValuePipe: TemperatureValuePipe,
   ) { }
-
-  ngOnInit(): void { }
 }

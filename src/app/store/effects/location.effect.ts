@@ -6,8 +6,8 @@ import {LngLat, City} from 'src/app/shared/interfaces/geolocation.interface';
 import {GetCityService} from 'src/app/shared/services/get-city.service';
 import {DefineCurrentLocationService} from "../../shared/services/define-current-location.service";
 import {
-  getLocationCoords,
-  getLocationCoordsSuccess,
+  setCurrentLocationCoords,
+  setLocationCoordsSuccess,
   getMyCitySuccess,
   setLocationCoordsError,
 } from "../actions/forecast-app.action";
@@ -16,11 +16,11 @@ import {
 export class CurrentLocationEffect {
   getCurrentLocation$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
-      ofType(getLocationCoords),
+      ofType(setCurrentLocationCoords),
       switchMap(() =>
         this.getCurLocationService
           .defineCurrentLocation()
-          .then((coords) => getLocationCoordsSuccess(coords))
+          .then((coords) => setLocationCoordsSuccess(coords))
           .catch(() => setLocationCoordsError())
       )
     )
@@ -28,7 +28,7 @@ export class CurrentLocationEffect {
 
   getCurrentCity$: Observable<Action> = createEffect(() =>
     this.actions$.pipe(
-      ofType(getLocationCoordsSuccess),
+      ofType(setLocationCoordsSuccess),
       switchMap((payload: LngLat) =>
         this.getCurrentCity.fetchCurrentCity(payload).pipe(
           map((location: City) => getMyCitySuccess(location))

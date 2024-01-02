@@ -68,4 +68,11 @@
       }
     }
   }
+
+  .not-found {
+    display: flex;
+    justify-content: center;
+    color: $thirty-color;
+    padding: 20px;
+  }
 }

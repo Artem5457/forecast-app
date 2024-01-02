@@ -1,4 +1,11 @@
-import {Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+  ViewChild} from '@angular/core';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -13,7 +20,7 @@ import {City} from "../shared/interfaces/geolocation.interface";
 @Component({
   selector: 'app-search-panel',
   templateUrl: './search-panel.component.html',
-  styleUrls: ['./search-panel.component.scss']
+  styleUrls: ['./search-panel.component.scss'],
 })
 export class SearchPanelComponent implements OnInit, OnDestroy {
   @Output() closeSearchPanel = new EventEmitter<void>()
@@ -47,8 +54,7 @@ export class SearchPanelComponent implements OnInit, OnDestroy {
               return this.getCityService.getCitiesByName(city || '  ');
             }),
           ).subscribe((cities: City[]) => {
-          this.cities = cities;
-          console.log('Cities: ', this.cities);
+            this.cities = cities;
         })
       )
     }, 0);

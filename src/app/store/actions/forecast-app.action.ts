@@ -14,9 +14,9 @@ export enum WeatherActionTypes {
   GetFiveDaysForecastSuccess = '[Forecast] Get a five days forecast Success',
 }
 
-export const getLocationCoords = createAction(WeatherActionTypes.GetLocationCoords);
+export const setCurrentLocationCoords = createAction(WeatherActionTypes.GetLocationCoords);
 
-export const getLocationCoordsSuccess = createAction(
+export const setLocationCoordsSuccess = createAction(
   WeatherActionTypes.GetLocationCoordsSuccess,
   props<LngLat>()
 );

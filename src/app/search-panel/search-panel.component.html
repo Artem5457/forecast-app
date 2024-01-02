@@ -18,7 +18,13 @@
       svgIcon="search"
     ></mat-icon>
     <app-search-panel-list
+      *ngIf="cities.length; else notFound"
       [cities]="cities"
+      (closeSearchPanel)="closeSearchPanel.emit()"
     ></app-search-panel-list>
   </div>
 </div>
+
+<ng-template #notFound>
+  <div class="not-found">Not Found</div>
+</ng-template>

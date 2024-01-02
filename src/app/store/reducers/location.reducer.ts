@@ -3,7 +3,7 @@ import { TypedAction } from "@ngrx/store/src/models";
 import { LngLat, City } from "src/app/shared/interfaces/geolocation.interface";
 import {
   setLocationCoordsError,
-  getLocationCoordsSuccess,
+  setLocationCoordsSuccess,
   getMyCitySuccess
 } from "../actions/forecast-app.action";
 
@@ -53,7 +53,7 @@ const getCoordsErrorReducer = (state: CurrentLocationState): CurrentLocationStat
 
 export const currentLocationReducer = createReducer(
   initialState,
-  on(getLocationCoordsSuccess, defineLocationCoordsReducer),
+  on(setLocationCoordsSuccess, defineLocationCoordsReducer),
   on(setLocationCoordsError, getCoordsErrorReducer),
   on(getMyCitySuccess, getMyCityReducer),
 );
